@@ -1,5 +1,11 @@
 .idea
-.serverless
-/vendor/
-.env
+.DS_Store
 !/**/.gitkeep
+
+.serverless
+.env
+/vendor/
+
+.php-cs-fixer.cache
+.phplint-cache
+.phpunit.result.cache
