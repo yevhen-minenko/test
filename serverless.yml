@@ -1,0 +1,23 @@
+service: app
+
+provider:
+    name: aws
+    region: us-east-1
+    runtime: provided.al2
+
+plugins:
+    - ./vendor/bref/bref
+
+functions:
+    default:
+        handler: index.php
+        name: ${env:FUNCTION}-${sls:stage}
+        layers:
+            - ${bref:layer.php-81}
+        timeout: 30
+
+# Exclude files from deployment
+package:
+    patterns:
+        - '!test/**'
+        - '!bin/**'
